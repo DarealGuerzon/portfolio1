@@ -399,15 +399,16 @@ nav {
 
 /*expertises*/
 .expertise-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  justify-items: center; /* Centers items inside each grid cell */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    justify-content: center;
+    padding: 1rem;
 }
 
 .expertise {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -418,32 +419,17 @@ nav {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     color: #ff3333;
     overflow: hidden;
-    background-color:#333333;/* Red color for all circles */
+    background-color: #333333;
+    text-align: center;
 }
 
-.expertise-section{
+.expertise-section {
     background-color: #000000;
-}
-.expertise::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.15);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
-    border-radius: 50%;
-}
-
-.expertise:hover::before {
-    opacity: 1;
+    padding: 2rem 0;
 }
 
 .expertise i {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
     z-index: 2;
 }
@@ -451,13 +437,20 @@ nav {
 .expertise span {
     font-weight: 500;
     z-index: 2;
-    text-align: center;
-    padding: 0 10px;
+    font-size: 1rem;
 }
 
 .expertise:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .expertise-container {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+    }
 }
 
 @media (max-width: 768px) {
@@ -465,34 +458,31 @@ nav {
         width: 120px;
         height: 120px;
     }
-    
+
     .expertise i {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
+
     .expertise span {
         font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
-    .container {
-        padding: 1.5rem;
+    .expertise-container {
+        grid-template-columns: repeat(2, 1fr); /* Two items per row for small screens */
+        gap: 1rem;
     }
-    
+
     .expertise {
         width: 100px;
         height: 100px;
     }
-    
+
     .expertise i {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
     }
-    
+
     .expertise span {
         font-size: 0.8rem;
     }
